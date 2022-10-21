@@ -1,0 +1,86 @@
+<!Doctype html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Exemplo de Exercício</title>
+    <script type="text/javascript">
+        function calcular(){
+    		// pegando o id do formulario
+    		var formulario = document.getElementById("formulario");	
+    		
+    		// kilos é minha variavel
+    		// formulario é o id do meu formulario
+    		// value é o valor do input
+    		// o + na frente transforma em number a string	
+    			
+    		var kilos  		= +formulario.kilos.value;
+    		var metros 		= +formulario.metros.value;
+    		var centimetros = +formulario.centimetros.value;
+    		
+     		// altura
+    		var altura = (metros * 100 + centimetros) / 100;
+    		 
+    		// imc
+    		var imc = kilos / (altura * altura);
+    		
+    		// o metodo toFixed fixa apenas duas casas decimais apos o ponto.
+    		formulario.imc.value = imc.toFixed(2);
+    		
+    		if(imc < 15.99)
+    		{
+    			alert("Magreza Grave");
+    		} 
+    		else if(imc >= 16 && imc <= 16.99)
+    		{
+    			alert("Magreza Moderada");
+    		}
+    		else if(imc >= 17 && imc <= 18.5)
+    		{
+    			alert("Magreza Leve");
+    		}
+    		else if(imc >= 18.5 && imc <= 24.9)
+    		{
+    			alert("Saudável");
+    		}
+    		else if(imc >= 25 && imc <= 29.9)
+    		{
+    			alert("Sobrepeso");
+    		}
+    		else if(imc >= 30 && imc <= 34.9)
+    		{
+    			alert("Obesidade Grau 1");
+    		}
+			else if(imc >= 35 && imc <= 39.9)
+            {
+	            alert("Obesidade Grau 2 (Severa)");
+            }
+    		else
+    		{
+    			alert("Obesidade Grau 3 (Mórbida)");
+    		}
+    	}
+    </script>
+</head>
+<body>
+    <form id="formulario">
+    <fieldset>
+    	<legend>Calculo IMC</legend>
+    	
+        <label for="kilos">Kilos:</label>
+        <input name="kilos" type="text" />
+    
+        <label for="metros">metros:</label>
+        <input name="metros" type="text" />
+    
+        <label for="centimetros">centimetros:</label>
+        <input name="centimetros" type="text" />
+    
+        <label for="imc">imc:</label>
+        <input name="imc" type="text" disabled="disabled" />
+            
+        <a href="#" onclick="calcular();">Calcular</a>
+    </fieldset>
+    </form>
+</body>
+</html>
